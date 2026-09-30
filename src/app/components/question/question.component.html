@@ -1,0 +1,113 @@
+<section class="question-page">
+
+  <!-- Background -->
+  <div class="question-glow glow-one"></div>
+  <div class="question-glow glow-two"></div>
+
+  <div class="question-container">
+
+    <!-- =========================
+         QUESTION
+    ========================== -->
+
+    <div
+      class="question-content"
+      *ngIf="!showYesMessage">
+
+      <p class="question-label">
+        One last question...
+      </p>
+
+      <h1>
+        Will you stay with me
+        <br>
+        for a lifetime?
+      </h1>
+
+      <p class="question-subtitle">
+        No pressure...
+        <br>
+        although I may already know your answer. ❤️
+      </p>
+
+
+      <!-- Answer buttons -->
+      <div class="answer-buttons">
+
+        <button
+          class="answer-button yes-button"
+          (click)="sayYes()">
+
+          Yes ❤️
+
+        </button>
+
+        <button
+          class="answer-button no-button"
+          (click)="sayNo()">
+
+          No
+
+        </button>
+
+      </div>
+
+
+      <!-- No response -->
+      <div
+        class="no-message"
+        *ngIf="noClicked">
+
+        <p>
+          How dare you? 😭
+        </p>
+
+        <span>
+          I think you clicked the wrong button.
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <!-- =========================
+         YES RESPONSE
+    ========================== -->
+
+    <div
+      class="yes-content"
+      *ngIf="showYesMessage">
+
+      <p class="yes-label">
+        I knew you'd say yes. ❤️
+      </p>
+
+      <h2>
+        But honestly...
+      </h2>
+
+      <p class="yes-message">
+        You are so so important to me, you are so special, so preetiesttttttt. And I know ami onek onek luckiesttttttt. Thanks Baby <3.
+        <br><br>
+        I just want to experience
+        whatever comes next with you.
+      </p>
+
+
+      <!-- Continue -->
+      <button
+        class="last-button"
+        (click)="continue()">
+
+        One last thing...
+
+        <span>→</span>
+
+      </button>
+
+    </div>
+
+  </div>
+
+</section>

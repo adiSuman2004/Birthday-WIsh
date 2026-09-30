@@ -1,0 +1,321 @@
+:host {
+  display: block;
+}
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+.then-page {
+  min-height: 100vh;
+
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+
+  padding: 110px 25px 120px;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 20% 15%,
+      rgba(220, 100, 135, 0.12),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(150, 70, 120, 0.12),
+      transparent 35%
+    ),
+    #160b12;
+
+  color: white;
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.then-container {
+  width: 100%;
+
+  max-width: 850px;
+
+  position: relative;
+
+  z-index: 2;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   OPENING TEXT
+========================================= */
+
+.opening-text {
+  animation: fadeUp 1.8s ease both;
+}
+
+
+.small-label {
+  margin: 0 0 30px;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 10px;
+
+  letter-spacing: 6px;
+
+  color: rgba(255, 255, 255, 0.45);
+}
+
+
+.opening-text h1 {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(32px, 5vw, 52px);
+
+  font-weight: 400;
+
+  line-height: 1.35;
+
+  color: rgba(255, 255, 255, 0.92);
+}
+
+
+/* =========================================
+   VIDEO
+========================================= */
+
+.then-video-wrapper {
+  width: min(700px, 90vw);
+
+  margin: 75px auto 80px;
+
+  display: flex;
+
+  justify-content: center;
+
+  animation: videoReveal 2s cubic-bezier(.22,.61,.36,1) both;
+}
+
+
+.then-video {
+  display: block;
+
+  width: 100%;
+
+  max-height: 70vh;
+
+  object-fit: contain;
+
+  border-radius: 8px;
+
+  background: #000;
+
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.55);
+
+}
+
+
+/* =========================================
+   CLOSING TEXT
+========================================= */
+
+.closing-text {
+  max-width: 620px;
+
+  margin: 0 auto;
+
+  animation: fadeUp 2s ease both;
+}
+
+
+.closing-text p {
+  margin: 0 0 35px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 19px;
+
+  line-height: 1.9;
+
+  color: rgba(255, 255, 255, 0.68);
+}
+
+
+.closing-text .special-line {
+  margin-top: 50px;
+
+  font-size: 27px;
+
+  line-height: 1.6;
+
+  font-style: italic;
+
+  color: rgba(255, 255, 255, 0.95);
+}
+
+
+/* =========================================
+   CONTINUE
+========================================= */
+
+.then-continue {
+  margin-top: 65px;
+
+  padding: 15px 30px;
+
+  border-radius: 50px;
+
+  border: 1px solid rgba(255, 255, 255, 0.22);
+
+  background: rgba(255, 255, 255, 0.03);
+
+  color: white;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 13px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.5s ease,
+    transform 0.5s ease,
+    border-color 0.5s ease;
+}
+
+
+.then-continue span {
+  display: inline-block;
+
+  margin-left: 8px;
+
+  transition: transform 0.5s ease;
+}
+
+
+.then-continue:hover {
+  background: rgba(255, 255, 255, 0.08);
+
+  border-color: rgba(255, 255, 255, 0.4);
+
+  transform: translateY(-3px);
+}
+
+
+.then-continue:hover span {
+  transform: translateY(4px);
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes fadeUp {
+
+  from {
+    opacity: 0;
+
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+
+}
+
+
+@keyframes videoReveal {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(40px)
+      scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .then-page {
+    padding: 75px 18px 90px;
+  }
+
+  .small-label {
+    font-size: 9px;
+
+    letter-spacing: 4px;
+  }
+
+  .opening-text h1 {
+    font-size: 30px;
+
+    line-height: 1.45;
+  }
+
+  .then-video-wrapper {
+    width: 92vw;
+
+    margin: 55px auto 60px;
+  }
+
+  .then-video {
+    max-height: 65vh;
+
+    border-radius: 6px;
+  }
+
+  .closing-text p {
+    font-size: 16px;
+
+    line-height: 1.85;
+  }
+
+  .closing-text .special-line {
+    font-size: 23px;
+
+    margin-top: 40px;
+  }
+
+  .then-continue {
+    margin-top: 45px;
+  }
+
+}

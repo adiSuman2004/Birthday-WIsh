@@ -1,0 +1,624 @@
+:host {
+  display: block;
+}
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+.question-page {
+  min-height: 100vh;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 60px 25px;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 25% 25%,
+      rgba(220, 100, 135, 0.14),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      rgba(150, 70, 120, 0.14),
+      transparent 35%
+    ),
+    #160b12;
+
+  color: white;
+}
+
+
+/* =========================================
+   BACKGROUND GLOW
+========================================= */
+
+.question-glow {
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  border-radius: 50%;
+
+  filter: blur(130px);
+
+  opacity: 0.15;
+
+  pointer-events: none;
+}
+
+.glow-one {
+  top: -220px;
+  left: -180px;
+
+  background: #d85b7f;
+}
+
+.glow-two {
+  right: -180px;
+  bottom: -220px;
+
+  background: #8e4670;
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.question-container {
+  width: 100%;
+
+  max-width: 800px;
+
+  position: relative;
+
+  z-index: 2;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   QUESTION
+========================================= */
+
+.question-content {
+  width: 100%;
+
+  animation:
+    questionAppear
+    1.8s
+    cubic-bezier(.22, .61, .36, 1)
+    both;
+}
+
+
+/* =========================================
+   QUESTION LABEL
+========================================= */
+
+.question-label {
+  margin: 0 0 35px;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 10px;
+
+  letter-spacing: 6px;
+
+  text-transform: uppercase;
+
+  color: rgba(255, 255, 255, 0.45);
+}
+
+
+/* =========================================
+   MAIN QUESTION
+========================================= */
+
+.question-content h1 {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(38px, 6vw, 65px);
+
+  font-weight: 400;
+
+  line-height: 1.3;
+
+  color: rgba(255, 255, 255, 0.94);
+}
+
+
+/* =========================================
+   QUESTION SUBTITLE
+========================================= */
+
+.question-subtitle {
+  margin: 35px auto 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  font-style: italic;
+
+  color: rgba(255, 255, 255, 0.52);
+}
+
+
+/* =========================================
+   ANSWER BUTTONS
+========================================= */
+
+.answer-buttons {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 18px;
+
+  margin-top: 55px;
+}
+
+
+.answer-button {
+  min-width: 125px;
+
+  padding: 15px 30px;
+
+  border-radius: 50px;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 13px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.5s ease,
+    background 0.5s ease,
+    border-color 0.5s ease,
+    box-shadow 0.5s ease;
+}
+
+
+/* =========================================
+   YES BUTTON
+========================================= */
+
+.yes-button {
+  border:
+    1px solid
+    rgba(255, 180, 200, 0.5);
+
+  background:
+    rgba(220, 100, 135, 0.15);
+
+  color: white;
+}
+
+
+.yes-button:hover {
+  transform: translateY(-4px);
+
+  background:
+    rgba(220, 100, 135, 0.28);
+
+  border-color:
+    rgba(255, 190, 210, 0.8);
+
+  box-shadow:
+    0 12px 35px
+    rgba(220, 100, 135, 0.2);
+}
+
+
+/* =========================================
+   NO BUTTON
+========================================= */
+
+.no-button {
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.18);
+
+  background:
+    rgba(255, 255, 255, 0.03);
+
+  color:
+    rgba(255, 255, 255, 0.75);
+}
+
+
+.no-button:hover {
+  transform: translateY(-4px);
+
+  background:
+    rgba(255, 255, 255, 0.08);
+
+  border-color:
+    rgba(255, 255, 255, 0.3);
+}
+
+
+/* =========================================
+   NO MESSAGE
+========================================= */
+
+.no-message {
+  margin-top: 35px;
+
+  animation:
+    messageAppear
+    0.8s
+    ease
+    both;
+}
+
+
+.no-message p {
+  margin: 0 0 8px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 22px;
+
+  font-style: italic;
+
+  color: #f3a9bd;
+}
+
+
+.no-message span {
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 12px;
+
+  color:
+    rgba(255, 255, 255, 0.45);
+}
+
+
+/* =========================================
+   YES CONTENT
+========================================= */
+
+.yes-content {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+
+  animation:
+    yesReveal
+    2.2s
+    cubic-bezier(.22, .61, .36, 1)
+    both;
+}
+
+
+/* =========================================
+   YES LABEL
+========================================= */
+
+.yes-label {
+  margin: 0 0 35px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 18px;
+
+  font-style: italic;
+
+  line-height: 1.5;
+
+  color: #f3a9bd;
+}
+
+
+/* =========================================
+   YES TITLE
+========================================= */
+
+.yes-content h2 {
+  margin: 0 0 30px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(40px, 6vw, 65px);
+
+  font-weight: 400;
+
+  line-height: 1.15;
+
+  color:
+    rgba(255, 255, 255, 0.94);
+}
+
+
+/* =========================================
+   YES MESSAGE
+========================================= */
+
+.yes-message {
+  margin: 0;
+
+  max-width: 650px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 20px;
+
+  line-height: 1.9;
+
+  color:
+    rgba(255, 255, 255, 0.7);
+}
+
+
+/* =========================================
+   LAST BUTTON
+========================================= */
+
+.last-button {
+  margin-top: 60px;
+
+  padding: 15px 30px;
+
+  border-radius: 50px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.25);
+
+  background: transparent;
+
+  color: white;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 13px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.5s ease,
+    background 0.5s ease,
+    border-color 0.5s ease,
+    box-shadow 0.5s ease;
+}
+
+
+.last-button span {
+  display: inline-block;
+
+  margin-left: 8px;
+
+  transition:
+    transform 0.5s ease;
+}
+
+
+.last-button:hover {
+  transform: translateY(-4px);
+
+  background:
+    rgba(255, 255, 255, 0.08);
+
+  border-color:
+    rgba(255, 255, 255, 0.4);
+
+  box-shadow:
+    0 10px 30px
+    rgba(255, 255, 255, 0.05);
+}
+
+
+.last-button:hover span {
+  transform: translateX(5px);
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes questionAppear {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+@keyframes messageAppear {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+@keyframes yesReveal {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(40px)
+      scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .question-page {
+    padding: 40px 20px;
+  }
+
+
+  .question-label {
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 28px;
+  }
+
+
+  .question-content h1 {
+    font-size: 34px;
+
+    line-height: 1.4;
+  }
+
+
+  .question-subtitle {
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    margin-top: 28px;
+  }
+
+
+  .answer-buttons {
+    gap: 12px;
+
+    margin-top: 45px;
+  }
+
+
+  .answer-button {
+    min-width: 110px;
+
+    padding: 13px 22px;
+  }
+
+
+  .no-message {
+    margin-top: 30px;
+  }
+
+
+  .no-message p {
+    font-size: 20px;
+  }
+
+
+  .yes-label {
+    font-size: 16px;
+
+    margin-bottom: 28px;
+  }
+
+
+  .yes-content h2 {
+    font-size: 40px;
+
+    line-height: 1.2;
+
+    margin-bottom: 25px;
+  }
+
+
+  .yes-message {
+    font-size: 17px;
+
+    line-height: 1.9;
+
+    padding: 0 10px;
+  }
+
+
+  .last-button {
+    margin-top: 45px;
+
+    padding: 13px 25px;
+  }
+
+}

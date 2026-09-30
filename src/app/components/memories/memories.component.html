@@ -1,0 +1,146 @@
+<section class="memories-page">
+
+  <!-- Decorative background -->
+  <div class="background-glow glow-one"></div>
+  <div class="background-glow glow-two"></div>
+
+  <div class="memories-container">
+
+    <!-- Header -->
+    <div class="memories-header">
+
+      <p class="memories-label">
+        A little piece of us
+      </p>
+
+      <h1>
+        Our
+        <span>Memories</span>
+      </h1>
+
+      <p class="memories-intro">
+        Since you deleted all the photos of us from your phone,
+        <br>
+        open this whenever you feel like looking back at our memories. ❤️
+      </p>
+
+    </div>
+
+
+    <!-- Album -->
+    <div class="album-wrapper">
+
+      <!-- Previous button -->
+      <button
+        class="album-nav previous"
+        (click)="previousPhoto()"
+        aria-label="Previous photo">
+
+        <span>←</span>
+
+      </button>
+
+
+      <!-- Photo album -->
+      <div class="album">
+
+        <div class="photo-frame">
+
+  <!-- IMAGE -->
+  <img
+    *ngIf="currentPhoto.type === 'image'"
+    [src]="currentPhoto.src"
+    [alt]="currentPhoto.caption"
+    class="memory-photo"
+  >
+
+  <!-- VIDEO -->
+  <video
+    *ngIf="currentPhoto.type === 'video'"
+    [src]="currentPhoto.src"
+    class="memory-video"
+    controls
+    playsinline
+    preload="metadata">
+  </video>
+
+</div>
+
+
+        <!-- Photo information -->
+        <div class="photo-information">
+
+          <p class="photo-date">
+            {{ currentPhoto.date }}
+          </p>
+
+          <p
+            class="photo-caption"
+            *ngIf="currentPhoto.caption">
+
+            {{ currentPhoto.caption }}
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- Next button -->
+      <button
+        class="album-nav next"
+        (click)="nextPhoto()"
+        aria-label="Next photo">
+
+        <span>→</span>
+
+      </button>
+
+    </div>
+
+
+    <!-- Counter -->
+    <div class="photo-counter">
+
+     <span class="current-number">
+  {{ currentIndex + 1 }}
+</span>
+
+      <span class="counter-line"></span>
+
+      <span>
+  {{ photos.length }}
+</span>
+
+    </div>
+
+
+    <!-- Thumbnail indicators -->
+    <div class="album-dots">
+
+      <button
+        *ngFor="let photo of photos; let i = index"
+        class="album-dot"
+        [class.active]="i === currentIndex"
+        (click)="goToPhoto(i)"
+        [attr.aria-label]="'Go to photo ' + (i + 1)">
+      </button>
+
+    </div>
+
+
+    <!-- Continue -->
+    <button
+      class="continue-button"
+      (click)="continue()">
+
+      There's more
+
+      <span>↓</span>
+
+    </button>
+
+  </div>
+
+</section>

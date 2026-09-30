@@ -1,0 +1,182 @@
+<section class="letter-page">
+
+  <!-- =========================================
+       BACKGROUND VIDEO
+  ========================================== -->
+
+<video
+  id="letterBackgroundVideo"
+  class="letter-background-video"
+  autoplay
+  muted
+  loop
+  playsinline
+  preload="auto">
+
+    <source
+      src="assets/videos/letter-background.mp4"
+      type="video/mp4">
+
+  </video>
+
+
+  <!-- Dark overlay -->
+  <div class="video-overlay"></div>
+
+
+  <!-- =========================================
+       MUSIC
+  ========================================== -->
+
+  <audio
+    id="letterMusic"
+    loop
+    preload="auto">
+
+    <source
+      src="assets/song/PERFECT.mp3"
+      type="audio/mpeg">
+
+  </audio>
+
+
+  <!-- =========================================
+       DECORATIVE GLOW
+  ========================================== -->
+
+  <div class="letter-glow glow-one"></div>
+  <div class="letter-glow glow-two"></div>
+
+
+  <!-- =========================================
+       MAIN CONTENT
+  ========================================== -->
+
+  <div class="letter-container">
+
+
+    <!-- =======================================
+         BEFORE OPENING
+    ======================================== -->
+
+    <div
+      class="envelope-section"
+      [class.opened]="envelopeOpened">
+
+
+      <p class="small-label">
+        Something I wanted to give you...
+      </p>
+
+
+      <!-- Envelope -->
+
+      <button
+        class="envelope"
+        (click)="openLetter()"
+        aria-label="Open the letter">
+
+
+        <!-- Envelope back -->
+
+        <div class="envelope-back"></div>
+
+
+        <!-- Letter paper -->
+
+        <div class="letter-paper">
+
+          <span class="paper-line">
+            For you...
+          </span>
+
+        </div>
+
+
+        <!-- Envelope flap -->
+
+        <div class="envelope-flap"></div>
+
+
+        <!-- Heart seal -->
+
+        <div class="envelope-seal">
+          ♥
+        </div>
+
+      </button>
+
+
+      <p class="open-text">
+        Click to open
+      </p>
+
+    </div>
+
+
+    <!-- =======================================
+         LETTER
+    ======================================== -->
+
+    <div
+      class="letter-content"
+      [class.visible]="envelopeOpened">
+
+
+      <p class="letter-intro">
+        MY Babesiaaaa
+      </p>
+
+
+      <div class="letter-body">
+
+        <p>
+          Ik I maybe not good with words and sometime have no patiience but trust me when I say this, I love you with all my heart and I will always be here for you. You are the most important person in my life and I can't imagine my life without you. You make me a better person and I am so grateful for everything you do for me. I love you more than words can express and I will always cherish every moment we spend together.
+        </p>
+
+        <p>
+          Since the moment we met, I knew there was something special about you. Your smile, your laugh, your kindness and speciallyy YOU♥. I promise ami sob somoy achi sob somoyyyyyyy.
+</p>
+        <p>
+          You Happy, Me Happyyyyyyyy. I always want the best for you. Just want to say ami bujhi baby trust me ami bujhi. Ar haa its mee you can share anythinggg with me. I promise I will never break your trust. 
+        </p>
+
+        <p>
+          Even with room full of people my eyes always searches for youuuu my preetiesttttttt Babyyyyyyy.
+        </p>
+
+        <p class="highlight">
+          And I'm really glad it was you. ❤️
+        </p>
+
+      </div>
+
+
+      <div class="letter-signature">
+
+        <span>
+          To my preetiesttt Girl, my strongesttt Girl ♥
+        </span>
+
+        <strong>
+          Your Bochu 
+        </strong>
+
+      </div>
+
+
+      <button
+        class="continue-button"
+        (click)="continue()">
+
+        There's more
+
+        <span>→</span>
+
+      </button>
+
+    </div>
+
+  </div>
+
+</section>

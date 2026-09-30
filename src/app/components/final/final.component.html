@@ -1,0 +1,90 @@
+<section class="final-page">
+
+  <!-- =========================================
+       BACKGROUND PHOTO
+  ========================================== -->
+
+  <img
+    class="final-background"
+    src="assets/images/Final.jpeg"
+    alt="A special memory">
+
+
+  <!-- =========================================
+       DARK CINEMATIC OVERLAY
+  ========================================== -->
+
+  <div class="final-overlay"></div>
+
+
+  <!-- =========================================
+       SOFT LIGHT
+  ========================================== -->
+
+  <div class="final-glow"></div>
+
+
+  <!-- =========================================
+       FINAL CONTENT
+  ========================================== -->
+
+  <div
+    class="final-content"
+    [class.visible]="showMessage">
+
+    <p class="small-line">
+      And finally...
+    </p>
+
+
+    <div class="divider"></div>
+
+
+    <h1>
+      If I could choose
+      <br>
+      all over again...
+    </h1>
+
+
+    <p class="main-message">
+      I'd still choose you.
+    </p>
+
+
+    <p class="repeat-message">
+      Again.
+      <br>
+      And again.
+      <br>
+      And again.
+    </p>
+
+
+    <div class="heart">
+      ♥
+    </div>
+
+
+    <p class="closing-message">
+      Happy Birthday, my love.
+    </p>
+
+
+    <p class="signature">
+      — Your Bochu
+    </p>
+
+
+    <button
+      class="restart-button"
+      (click)="startAgain()">
+
+      <span>↻</span>
+      Start again
+
+    </button>
+
+  </div>
+
+</section>

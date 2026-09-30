@@ -1,0 +1,642 @@
+:host {
+  display: block;
+}
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+.letter-page {
+  min-height: 100vh;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 70px 25px;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  background: #10080d;
+
+  color: white;
+}
+
+
+/* =========================================
+   BACKGROUND VIDEO
+========================================= */
+
+.letter-background-video {
+  position: fixed;
+
+  top: 50%;
+  left: 50%;
+
+  width: 100vw;
+  height: 100vh;
+
+  transform: translate(-50%, -50%);
+
+  object-fit: cover;
+
+  object-position: center;
+
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   VIDEO OVERLAY
+========================================= */
+
+.video-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(10, 5, 8, 0.62),
+      rgba(15, 7, 11, 0.76)
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   DECORATIVE GLOW
+========================================= */
+
+.letter-glow {
+  position: fixed;
+
+  width: 450px;
+  height: 450px;
+
+  border-radius: 50%;
+
+  filter: blur(140px);
+
+  opacity: 0.14;
+
+  z-index: 2;
+
+  pointer-events: none;
+}
+
+.glow-one {
+  top: -250px;
+  left: -180px;
+
+  background: #d85b7f;
+}
+
+.glow-two {
+  right: -200px;
+  bottom: -250px;
+
+  background: #8e4670;
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.letter-container {
+  width: 100%;
+
+  max-width: 850px;
+
+  position: relative;
+
+  z-index: 5;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   ENVELOPE SECTION
+========================================= */
+
+.envelope-section {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s ease;
+}
+
+.envelope-section.opened {
+  opacity: 0;
+
+  transform:
+    translateY(-40px)
+    scale(0.96);
+
+  pointer-events: none;
+
+  position: absolute;
+}
+
+
+.small-label {
+  margin: 0 0 35px;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 10px;
+
+  letter-spacing: 5px;
+
+  text-transform: uppercase;
+
+  color: rgba(255, 255, 255, 0.58);
+}
+
+
+/* =========================================
+   ENVELOPE
+========================================= */
+
+.envelope {
+  width: 330px;
+
+  height: 220px;
+
+  position: relative;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  perspective: 1000px;
+
+  filter:
+    drop-shadow(
+      0 30px 50px rgba(0, 0, 0, 0.5)
+    );
+
+  transition:
+    transform 0.6s ease,
+    filter 0.6s ease;
+}
+
+.envelope:hover {
+  transform: translateY(-8px);
+
+  filter:
+    drop-shadow(
+      0 40px 60px rgba(0, 0, 0, 0.6)
+    );
+}
+
+
+/* =========================================
+   ENVELOPE BACK
+========================================= */
+
+.envelope-back {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      145deg,
+      #d8a0ae,
+      #b76d82
+    );
+
+  border-radius: 5px;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.25);
+}
+
+
+/* =========================================
+   LETTER PAPER
+========================================= */
+
+.letter-paper {
+  position: absolute;
+
+  width: 265px;
+
+  height: 185px;
+
+  left: 50%;
+
+  top: 18px;
+
+  transform:
+    translateX(-50%)
+    translateY(25px);
+
+  background:
+    linear-gradient(
+      145deg,
+      #fffaf4,
+      #f3e8df
+    );
+
+  border-radius: 2px;
+
+  z-index: 2;
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.18);
+
+  transition:
+    transform 1.5s cubic-bezier(.22,.61,.36,1);
+}
+
+.paper-line {
+  display: block;
+
+  margin-top: 28px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 16px;
+
+  font-style: italic;
+
+  color: #704452;
+}
+
+
+/* =========================================
+   ENVELOPE FLAP
+========================================= */
+
+.envelope-flap {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 0;
+  height: 0;
+
+  border-left: 165px solid transparent;
+  border-right: 165px solid transparent;
+
+  border-top: 120px solid #c98799;
+
+  transform-origin: top center;
+
+  z-index: 4;
+
+  transition:
+    transform 1.2s cubic-bezier(.22,.61,.36,1);
+}
+
+
+/* =========================================
+   SEAL
+========================================= */
+
+.envelope-seal {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -15%);
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #8f405b;
+
+  color: #ffdbe5;
+
+  font-size: 19px;
+
+  z-index: 5;
+
+  box-shadow:
+    0 5px 15px rgba(0,0,0,0.2);
+
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+
+/* =========================================
+   OPEN TEXT
+========================================= */
+
+.open-text {
+  margin: 30px 0 0;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 11px;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  color: rgba(255,255,255,0.5);
+
+  animation:
+    gentlePulse 2.5s ease-in-out infinite;
+}
+
+
+/* =========================================
+   LETTER CONTENT
+========================================= */
+
+.letter-content {
+  width: min(650px, 90vw);
+
+  padding: 55px 55px 50px;
+
+  box-sizing: border-box;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,250,244,0.96),
+      rgba(244,231,224,0.94)
+    );
+
+  border-radius: 4px;
+
+  color: #4d3039;
+
+  box-shadow:
+    0 40px 100px rgba(0,0,0,0.45);
+
+  opacity: 0;
+
+  transform:
+    translateY(50px)
+    scale(0.96);
+
+  pointer-events: none;
+
+  transition:
+    opacity 1.5s ease,
+    transform 1.5s cubic-bezier(.22,.61,.36,1);
+}
+
+.letter-content.visible {
+  opacity: 1;
+
+  transform:
+    translateY(0)
+    scale(1);
+
+  pointer-events: auto;
+}
+
+
+/* =========================================
+   LETTER TEXT
+========================================= */
+
+.letter-intro {
+  margin: 0 0 35px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 30px;
+
+  font-style: italic;
+
+  color: #7d4657;
+}
+
+
+.letter-body {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 18px;
+
+  line-height: 2;
+
+  text-align: left;
+
+  color: #63434b;
+}
+
+.letter-body p {
+  margin: 0 0 22px;
+}
+
+
+.letter-body .highlight {
+  margin-top: 35px;
+
+  text-align: center;
+
+  font-size: 21px;
+
+  font-style: italic;
+
+  color: #914c64;
+}
+
+
+/* =========================================
+   SIGNATURE
+========================================= */
+
+.letter-signature {
+  margin-top: 45px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-end;
+
+  gap: 6px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-style: italic;
+
+  color: #79515c;
+}
+
+.letter-signature strong {
+  font-size: 22px;
+
+  color: #8f405b;
+}
+
+
+/* =========================================
+   CONTINUE
+========================================= */
+
+.continue-button {
+  margin-top: 45px;
+
+  padding: 13px 26px;
+
+  border-radius: 50px;
+
+  border: 1px solid rgba(120,70,85,0.3);
+
+  background: transparent;
+
+  color: #704452;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 12px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.4s ease,
+    background 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.continue-button span {
+  display: inline-block;
+
+  margin-left: 8px;
+
+  transition: transform 0.4s ease;
+}
+
+.continue-button:hover {
+  transform: translateY(-3px);
+
+  background: rgba(130,70,90,0.08);
+
+  border-color: rgba(120,70,85,0.5);
+}
+
+.continue-button:hover span {
+  transform: translateX(5px);
+}
+
+
+/* =========================================
+   ANIMATION
+========================================= */
+
+@keyframes gentlePulse {
+
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .letter-page {
+    padding: 40px 18px;
+  }
+
+
+  .envelope {
+    width: 280px;
+    height: 185px;
+  }
+
+
+  .envelope-flap {
+    border-left-width: 140px;
+    border-right-width: 140px;
+    border-top-width: 100px;
+  }
+
+
+  .letter-paper {
+    width: 225px;
+    height: 155px;
+  }
+
+
+  .letter-content {
+    width: 94vw;
+
+    padding: 40px 28px;
+  }
+
+
+  .letter-intro {
+    font-size: 26px;
+  }
+
+
+  .letter-body {
+    font-size: 16px;
+
+    line-height: 1.9;
+  }
+
+
+  .letter-body .highlight {
+    font-size: 18px;
+  }
+
+}
