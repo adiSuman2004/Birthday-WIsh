@@ -1,4 +1,11 @@
-import { Component, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  AfterViewInit,
+  Inject,
+  PLATFORM_ID
+} from '@angular/core';
+
+import { isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,17 +16,24 @@ import { Router } from '@angular/router';
 })
 export class LetterComponent implements AfterViewInit {
 
-  envelopeOpened: boolean = false;
+  envelopeOpened = false;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
   ngAfterViewInit(): void {
+
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
     const video = document.getElementById(
       'letterBackgroundVideo'
     ) as HTMLVideoElement;
 
     if (video) {
-      // Force background video to be muted
       video.muted = true;
       video.volume = 0;
 
@@ -31,11 +45,15 @@ export class LetterComponent implements AfterViewInit {
 
   openLetter(): void {
     this.envelopeOpened = true;
-
     this.playMusic();
   }
 
   playMusic(): void {
+
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
     const music = document.getElementById(
       'letterMusic'
     ) as HTMLAudioElement;
@@ -50,7 +68,6 @@ export class LetterComponent implements AfterViewInit {
   }
 
   continue(): void {
-  this.router.navigate(['/final']);
-}
-
+    this.router.navigate(['/final']);
+  }
 }
